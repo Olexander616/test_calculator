@@ -10,6 +10,7 @@
         android:id="@+id/result_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/back_button"
         android:text=".."
         android:textSize="@android:dimen/app_icon_size"
         app:layout_constraintBottom_toBottomOf="parent"
