@@ -146,4 +146,12 @@
         android:id="@+id/clear_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"/>
+    <Button
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/divide_button"
+        app:layout_constraintBottom_toTopOf="@id/divide_button"
+        android:text="Backspace"
+        android:id="@+id/back_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         val plus_button = findViewById<Button>(R.id.plus_button)
         var divide_button = findViewById<TextView>(R.id.divide_button)
         var clear_button = findViewById<TextView>(R.id.clear_button)
+        var back_button = findViewById<TextView>(R.id.back_button)
 
         var result_textview = findViewById<TextView>(R.id.result_textview)
 
@@ -100,6 +101,11 @@ class MainActivity : AppCompatActivity() {
         clear_button.setOnClickListener{
             result_textview.text = ""
             number_string_builder.clear()
+        }
+        back_button.setOnClickListener{
+            val lastindex = number_string_builder.length -1
+            number_string_builder.deleteCharAt(lastindex)
+            result_textview.text = number_string_builder
         }
 
         equel_button.setOnClickListener{
