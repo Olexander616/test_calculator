@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import com.ezylang.evalex.Expression
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         val point_button = findViewById<Button>(R.id.point_button)
         val plus_button = findViewById<Button>(R.id.plus_button)
 
-        val result_textview = findViewById<TextView>(R.id.result_textview)
+        var result_textview = findViewById<TextView>(R.id.result_textview)
 
         val number_string_builder = StringBuilder()
 
@@ -89,5 +90,13 @@ class MainActivity : AppCompatActivity() {
             number_string_builder.append(".")
             result_textview.text = number_string_builder
         }
+
+        equel_button.setOnClickListener{
+            val result =  Expression(number_string_builder.toString()).evaluate().numberValue.toString()
+            result_textview.text = result
+            number_string_builder.clear()
+            number_string_builder.append(result.toString())
+        }
+
     }
 }
