@@ -29,6 +29,12 @@ class MainActivity : AppCompatActivity() {
 
         val result_textview = findViewById<TextView>(R.id.result_textview)
 
+        val number_string_builder = StringBuilder()
+
+        one_button.setOnClickListener{
+            number_string_builder.append(1)
+            result_textview.text = number_string_builder
+        }
 
     }
 }
