@@ -130,4 +130,20 @@
         android:id="@+id/multiply_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"/>
+    <Button
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/multiply_button"
+        app:layout_constraintBottom_toTopOf="@id/multiply_button"
+        android:text="/"
+        android:id="@+id/divide_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"/>
+    <Button
+        app:layout_constraintRight_toLeftOf="@id/divide_button"
+        app:layout_constraintBottom_toTopOf="@id/multiply_button"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="Clear"
+        android:id="@+id/clear_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
