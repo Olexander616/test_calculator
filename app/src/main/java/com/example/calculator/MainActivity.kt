@@ -36,5 +36,58 @@ class MainActivity : AppCompatActivity() {
             result_textview.text = number_string_builder
         }
 
+        two_button.setOnClickListener{
+            number_string_builder.append(2)
+            result_textview.text = number_string_builder
+        }
+        three_button.setOnClickListener{
+            number_string_builder.append(3)
+            result_textview.text = number_string_builder
+        }
+        four_button.setOnClickListener{
+            number_string_builder.append(4)
+            result_textview.text = number_string_builder
+        }
+        five_button.setOnClickListener{
+            number_string_builder.append(5)
+            result_textview.text = number_string_builder
+        }
+        six_button.setOnClickListener{
+            number_string_builder.append(6)
+            result_textview.text = number_string_builder
+        }
+        seven_button.setOnClickListener{
+            number_string_builder.append(7)
+            result_textview.text = number_string_builder
+        }
+        eight_button.setOnClickListener{
+            number_string_builder.append(8)
+            result_textview.text = number_string_builder
+        }
+        nine_button.setOnClickListener{
+            number_string_builder.append(9)
+            result_textview.text = number_string_builder
+        }
+        zeroButton.setOnClickListener{
+            number_string_builder.append(0)
+            result_textview.text = number_string_builder
+        }
+
+        minus_button.setOnClickListener{
+            number_string_builder.append("-")
+            result_textview.text = number_string_builder
+        }
+        plus_button.setOnClickListener{
+            number_string_builder.append("+")
+            result_textview.text = number_string_builder
+        }
+        multiply_button.setOnClickListener{
+            number_string_builder.append("*")
+            result_textview.text = number_string_builder
+        }
+        point_button.setOnClickListener{
+            number_string_builder.append(".")
+            result_textview.text = number_string_builder
+        }
     }
 }
