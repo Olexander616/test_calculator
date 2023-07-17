@@ -6,4 +6,15 @@
     </style>
 
     <style name="Theme.Calculator" parent="Base.Theme.Calculator" />
+
+    <style name="RoundButtonStyle" parent="Widget.AppCompat.Button">
+        <item name="android:textColor">#FFFFFF</item> <!-- Text color -->
+        <item name="android:textSize">16sp</item> <!-- Text size -->
+        <item name="android:padding">10dp</item> <!-- Padding -->
+        <item name="android:background">@drawable/rounded_background</item>
+        <item name="android:layout_width">0dp</item>>
+        <item name="android:layout_height">wrap_content</item><!-- Background drawable -->
+    </style>
+
+
 </resources>
