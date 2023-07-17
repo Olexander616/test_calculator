@@ -1,5 +1,6 @@
 package com.example.calculator
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -15,6 +16,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val number_string_builder = StringBuilder()
 
+    private val history_list = mutableListOf<String>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // https://developer.android.com/topic/libraries/view-binding#kts
@@ -124,9 +126,21 @@ class MainActivity : AppCompatActivity() {
         }
 
         equelButton.setOnClickListener{
+            saveToHistory()
             calculate(result_textview)
         }
 
+        historyButton.setOnClickListener{
+            // open new activity
+            //  connect danni
+            val intent = Intent(this@MainActivity, HistoryActivity::class.java)
+            startActivity(intent)
+
+        }
+    }
+
+    private fun saveToHistory(){
+        history_list.add(number_string_builder.toString())
     }
 
     private fun calculate(result_textview: TextView) {
