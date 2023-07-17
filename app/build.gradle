@@ -4,6 +4,12 @@ plugins {
 }
 
 android {
+    // https://developer.android.com/topic/libraries/view-binding#kts
+    //  start add
+    buildFeatures {
+        viewBinding = true
+    }
+    // end add
     namespace 'com.example.calculator'
     compileSdk 33
 

@@ -5,71 +5,84 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.widget.ActionMenuView
+import com.example.calculator.databinding.ActivityMainBinding
 import com.ezylang.evalex.Expression
 
 class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
+    // https://developer.android.com/topic/libraries/view-binding#kts
+    // ActivityMainBinding - название ФАЙЛА XML
+    private lateinit var binding: ActivityMainBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) = with(binding) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        // https://developer.android.com/topic/libraries/view-binding#kts
+        //  start add
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+        // setContentView(R.layout.activity_main)
+        // end add
 
-        val zeroButton = findViewById<Button>(R.id.zero_button)
-        val one_button = findViewById<Button>(R.id.one_button)
-        val two_button = findViewById<Button>(R.id.two_button)
-        val three_button = findViewById<Button>(R.id.three_button)
-        val four_button = findViewById<Button>(R.id.four_button)
-        val five_button = findViewById<Button>(R.id.five_button)
-        val six_button = findViewById<Button>(R.id.six_button)
-        val seven_button = findViewById<Button>(R.id.seven_button)
-        val eight_button = findViewById<Button>(R.id.eight_button)
-        val nine_button = findViewById<Button>(R.id.nine_button)
 
-        val equel_button = findViewById<Button>(R.id.equel_button)
-        val minus_button = findViewById<Button>(R.id.minus_button)
-        val multiply_button = findViewById<Button>(R.id.multiply_button)
-        val point_button = findViewById<Button>(R.id.point_button)
-        val plus_button = findViewById<Button>(R.id.plus_button)
-        var divide_button = findViewById<TextView>(R.id.divide_button)
-        var clear_button = findViewById<TextView>(R.id.clear_button)
-        var back_button = findViewById<TextView>(R.id.back_button)
-
-        var result_textview = findViewById<TextView>(R.id.result_textview)
+//        val zeroButton = findViewById<Button>(R.id.zero_button)
+//        val one_button = findViewById<Button>(R.id.one_button)
+//        val two_button = findViewById<Button>(R.id.two_button)
+//        val three_button = findViewById<Button>(R.id.three_button)
+//        val four_button = findViewById<Button>(R.id.four_button)
+//        val five_button = findViewById<Button>(R.id.five_button)
+//        val six_button = findViewById<Button>(R.id.six_button)
+//        val seven_button = findViewById<Button>(R.id.seven_button)
+//        val eight_button = findViewById<Button>(R.id.eight_button)
+//        val nine_button = findViewById<Button>(R.id.nine_button)
+//
+//        val equel_button = findViewById<Button>(R.id.equel_button)
+//        val minus_button = findViewById<Button>(R.id.minus_button)
+//        val multiply_button = findViewById<Button>(R.id.multiply_button)
+//        val point_button = findViewById<Button>(R.id.point_button)
+//        val plus_button = findViewById<Button>(R.id.plus_button)
+//        var divide_button = findViewById<TextView>(R.id.divide_button)
+//        var clear_button = findViewById<TextView>(R.id.clear_button)
+//        var back_button = findViewById<TextView>(R.id.back_button)
+//
+       var result_textview = findViewById<TextView>(R.id.result_textview)
 
         val number_string_builder = StringBuilder()
 
-        one_button.setOnClickListener{
+        oneButton.setOnClickListener{
             number_string_builder.append(1)
             result_textview.text = number_string_builder
         }
 
-        two_button.setOnClickListener{
+        twoButton.setOnClickListener{
             number_string_builder.append(2)
             result_textview.text = number_string_builder
         }
-        three_button.setOnClickListener{
+        threeButton.setOnClickListener{
             number_string_builder.append(3)
             result_textview.text = number_string_builder
         }
-        four_button.setOnClickListener{
+        fourButton.setOnClickListener{
             number_string_builder.append(4)
             result_textview.text = number_string_builder
         }
-        five_button.setOnClickListener{
+        fiveButton.setOnClickListener{
             number_string_builder.append(5)
             result_textview.text = number_string_builder
         }
-        six_button.setOnClickListener{
+        sixButton.setOnClickListener{
             number_string_builder.append(6)
             result_textview.text = number_string_builder
         }
-        seven_button.setOnClickListener{
+        sevenButton.setOnClickListener{
             number_string_builder.append(7)
             result_textview.text = number_string_builder
         }
-        eight_button.setOnClickListener{
+        eightButton.setOnClickListener{
             number_string_builder.append(8)
             result_textview.text = number_string_builder
         }
-        nine_button.setOnClickListener{
+        nineButton.setOnClickListener{
             number_string_builder.append(9)
             result_textview.text = number_string_builder
         }
@@ -78,37 +91,37 @@ class MainActivity : AppCompatActivity() {
             result_textview.text = number_string_builder
         }
 
-        minus_button.setOnClickListener{
+        minusButton.setOnClickListener{
             number_string_builder.append("-")
             result_textview.text = number_string_builder
         }
-        plus_button.setOnClickListener{
+        plusButton.setOnClickListener{
             number_string_builder.append("+")
             result_textview.text = number_string_builder
         }
-        multiply_button.setOnClickListener{
+        multiplyButton.setOnClickListener{
             number_string_builder.append("*")
             result_textview.text = number_string_builder
         }
-        point_button.setOnClickListener{
+        pointButton.setOnClickListener{
             number_string_builder.append(".")
             result_textview.text = number_string_builder
         }
-        divide_button.setOnClickListener{
+        divideButton.setOnClickListener{
             number_string_builder.append("/")
             result_textview.text = number_string_builder
         }
-        clear_button.setOnClickListener{
+        clearButton.setOnClickListener{
             result_textview.text = ""
             number_string_builder.clear()
         }
-        back_button.setOnClickListener{
+        backButton.setOnClickListener{
             val lastindex = number_string_builder.length -1
             number_string_builder.deleteCharAt(lastindex)
             result_textview.text = number_string_builder
         }
 
-        equel_button.setOnClickListener{
+        equelButton.setOnClickListener{
             try{
             val result =  Expression(number_string_builder.toString()).evaluate().numberValue.toString()
             result_textview.text = result
