@@ -13,8 +13,9 @@ class MainActivity : AppCompatActivity() {
     // https://developer.android.com/topic/libraries/view-binding#kts
     // ActivityMainBinding - название ФАЙЛА XML
     private lateinit var binding: ActivityMainBinding
+    private val number_string_builder = StringBuilder()
 
-    override fun onCreate(savedInstanceState: Bundle?) = with(binding) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // https://developer.android.com/topic/libraries/view-binding#kts
         //  start add
@@ -45,10 +46,11 @@ class MainActivity : AppCompatActivity() {
 //        var clear_button = findViewById<TextView>(R.id.clear_button)
 //        var back_button = findViewById<TextView>(R.id.back_button)
 //
-       var result_textview = findViewById<TextView>(R.id.result_textview)
+        setListener()
+    }
 
-        val number_string_builder = StringBuilder()
-
+    private fun setListener() = with(binding){
+        var result_textview = findViewById<TextView>(R.id.result_textview)
         oneButton.setOnClickListener{
             number_string_builder.append(1)
             result_textview.text = number_string_builder
@@ -122,14 +124,20 @@ class MainActivity : AppCompatActivity() {
         }
 
         equelButton.setOnClickListener{
-            try{
-            val result =  Expression(number_string_builder.toString()).evaluate().numberValue.toString()
-            result_textview.text = result
-            number_string_builder.clear()
-            number_string_builder.append(result.toString())}catch (t: Throwable){
-                Toast.makeText(this@MainActivity, "Excecption: $t", Toast.LENGTH_LONG).show()
-            }
+            calculate(result_textview)
         }
 
+    }
+
+    private fun calculate(result_textview: TextView) {
+        try {
+            val result =
+                Expression(number_string_builder.toString()).evaluate().numberValue.toString()
+            result_textview.text = result
+            number_string_builder.clear()
+            number_string_builder.append(result.toString())
+        } catch (t: Throwable) {
+            Toast.makeText(this@MainActivity, "Excecption: $t", Toast.LENGTH_LONG).show()
+        }
     }
 }
