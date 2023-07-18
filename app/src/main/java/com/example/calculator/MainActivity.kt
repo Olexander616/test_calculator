@@ -133,7 +133,7 @@ class MainActivity : AppCompatActivity() {
         historyButton.setOnClickListener{
             // open new activity
             //  connect danni
-            val h = history_list
+            ///val h = history_list
             val intent = Intent(this@MainActivity, HistoryActivity::class.java)
             intent.putExtra("history",history_list.toTypedArray())
             startActivity(intent)
